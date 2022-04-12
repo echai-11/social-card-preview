@@ -1,0 +1,222 @@
+.social-card {
+    display:flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+.social-card__type {
+    margin: 10px 0;
+}
+.social-card__text-container{
+    text-align:left;
+}
+.facebook {
+    .social-card__card {
+        width:527px;
+    }
+    .social-card__card.article{
+        width:527px;
+        .social-card__title {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+        .social-card__description {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+        .social-card__image{
+            height:273px;
+            width:526px;
+            border-left: 1px solid #dadde1;
+            border-right: 1px solid #dadde1;
+            border-top:1px solid #dadde1;
+        }
+        .social-card__text-container{
+            background-color:#f1f3f5;
+            border-left: 1px solid #dadde1;
+            border-right: 1px solid #dadde1;
+            border-bottom:1px solid #dadde1;
+        }
+    }
+    .social-card__card.website{
+        width:527px;
+        display:flex;
+        flex-direction: row;
+        .social-card__title {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        .social-card__description {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            line-height: 1.3;
+            margin-top: 6px;
+        }
+        .social-card__image{
+            height:158px;
+            width:158px;
+            border-left: 1px solid #dadde1;
+            border-bottom: 1px solid #dadde1;
+            border-top:1px solid #dadde1;
+        }
+        .social-card__text-container{
+            flex:1
+        }
+        .social-card__text-container{
+            background-color:#f1f3f5;
+            border-left: 1px solid #dadde1;
+            border-top: 1px solid #dadde1;
+            border-bottom:1px solid #dadde1;
+        }
+    }
+    .social-card__text-container{
+        background-color:#f1f3f5;
+        border-left: 1px solid #dadde1;
+        border-right: 1px solid #dadde1;
+        border-bottom:1px solid #dadde1;
+    }
+    .social-card__text-container-inner{
+        margin:0;
+        padding: 10px 12px;
+    }
+    .social-card__url {
+        font-size:12px;
+        line-height: 11px;
+        text-transform: uppercase;
+    }
+    .social-card__title {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        margin: 3px 0 0;
+        padding-top: 2px;
+    }
+    .social-card__description {
+        font-size: 14px;
+        line-height: 25px;
+        word-break: break-word;
+        width:100%;
+    }
+}
+/* TWITTER */
+/* Summary or App*/
+.twitter {
+    .social-card__card{
+        width:436px;
+        display:flex;
+        flex-direction: row;
+        border-radius: 0.85714em;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #E1E8ED;
+        overflow:hidden;
+    }
+    .social-card__card.summary_large_image{
+        width:436px;
+        display:block;
+        border-radius: 0.85714em;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #E1E8ED;
+        overflow:hidden;
+        .social-card__image-container{
+            height:220px;
+         }
+        .social-card__image{
+            width:438px;
+            height:220px;
+        }
+        .social-card__text-container {
+            height:100%;
+        }
+        .social-card__text-container-inner {
+            padding:10.5px 14px;
+        }
+        .social-card__title {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+            h2 {
+                font-size: 1em;
+                margin: 0 0 0.15em;
+                letter-spacing: -0.2px;
+            }
+        }
+        .social-card__description {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            p {
+            font-size: 14px;
+            margin: 0.32333em 0;
+            }
+        }
+    }
+    .social-card__card.summary {
+        display:flex;
+        flex-direction: row;
+        .social-card__image{
+            width:125px;
+            height:125px;
+        }
+        .social-card__text-container {
+            flex:1;
+        }
+        .social-card__title {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+            h2 {
+                font-size: 0.9em;
+                margin: 0 0 0.15em;
+                letter-spacing: -0.2px;
+            }
+            
+        }
+        .social-card__description {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            p {
+                font-size: 14px;
+                margin-top: 0.32333em;
+            }
+        }
+    }
+    
+    .social-card__text-container-inner {
+        padding:10.5px;
+    }
+    .social-card__description {
+        margin-top:4.5px;
+    }
+    .social-card__url {
+        margin-top:4.5px;
+        text-transform: lowercase;
+        color: #8899A6;
+        font-size:14px;
+    }
+}

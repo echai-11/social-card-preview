@@ -1,0 +1,36 @@
+.metaInfo {
+    margin-top:50px;
+}
+.type {
+    margin:10px 0;
+}
+table {
+    margin:0 auto;
+    border: 1px solid black;
+    border-collapse:collapse;
+    th {
+        border-bottom:1px solid black;
+    }
+    tr {
+        td:first-child {
+            width:190px;
+        }
+        td {
+            padding:10px 10px 10px 5px;
+        }
+    }
+    tr td, tr th {
+        text-align:left;
+    }
+    tbody {
+        tr {
+            td:first-child {
+                display:flex;
+                span {
+                    align-self:flex-start;
+                }
+            }
+        }
+    
+    }
+}

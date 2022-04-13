@@ -17,7 +17,7 @@ export default function TwitterCard({ data }) {
           className={`social-card__card ${
             data.twitterCard && data.twitterCard.content
               ? data.twitterCard.content
-              : ""
+              : "summary"
           }`}
         >
           <div
@@ -30,6 +30,7 @@ export default function TwitterCard({ data }) {
                   ? `url(${data.image.content})`
                   : `url(${"https://via.placeholder.com/150"})`,
               backgroundSize: "cover",
+              backgroundPosition:"50% 50%",
               backgroundColor:"#e0e7ed",
             }}
           >

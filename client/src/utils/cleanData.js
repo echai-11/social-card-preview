@@ -14,6 +14,13 @@ export function cleanUrl(url){
 
 export const validateTwitter = (obj) => {
     if (obj.twitterCard === undefined) {
+      //If an og:type, og:title and og:description exist 
+      //in the markup but twitter:card is absent, then a 
+      //summary card may be rendered.
+      //https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
+      if(obj.type !== undefined && obj.title !== undefined && obj.description !== undefined){
+        return true;
+      }
       return false;
     } else if (
       obj.twitterCard &&

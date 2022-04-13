@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Preview from "./Preview";
 import { cleanUrl } from "../utils/cleanData";
-import "../styles/socialpreview.css";
+import "../styles/socialpreview.scss";
 
 export default function SocialPreview() {
   const [url, setUrl] = useState("");

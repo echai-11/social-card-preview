@@ -37,7 +37,7 @@ export default function MetaInfo({ data }) {
         <div className="meta-missing">
           <span>Missing values: </span>
           {Object.keys(errors).map((val,i) => {
-            return <span>{`og:${val}${i !== Object.keys(errors).length - 1 ? ", " : "."}`}</span>;
+            return <span key={`missing_${i}`}>{`og:${val}${i !== Object.keys(errors).length - 1 ? ", " : "."}`}</span>;
           })}
         </div>
       )}

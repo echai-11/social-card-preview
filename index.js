@@ -23,9 +23,8 @@ app.get('*', (req,res)=>{
 });
 
 app.post('/url', (req, res) => {
-  let data;
   if (req.body && req.body.url){
-    data = getData(req.body.url, res);
+    getData(req.body.url, res);
   } else {
     res.end(401);
   }

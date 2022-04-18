@@ -27,7 +27,7 @@ export default function FacebookCard({ data }) {
                     backgroundColor: "#f1f3f5",
                     backgroundPosition: "50% 50%"
                   }
-                : { backgroundSize: "cover", backgroundColor: "#f1f3f5" }
+                : { backgroundSize: "cover", backgroundColor: "#f1f3f5", height: 0 }
             }
           >
             {data?.image?.content && (
@@ -80,7 +80,7 @@ export default function FacebookCard({ data }) {
           </div>
         </div>
       ) : (
-        <div>No Metadata Found</div>
+        <div>No metadata found</div>
       )}
     </div>
   );

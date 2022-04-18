@@ -35,8 +35,10 @@ table {
     }
   }
 }
-.meta-missing {
-  max-width: 800px;
-  text-align: left;
-  margin: 10px auto 0;
+.metaInfo_no-data {
+  p {
+    color:grey;
+    margin: 10px 0;
+  }
+  margin: 50px auto;
 }

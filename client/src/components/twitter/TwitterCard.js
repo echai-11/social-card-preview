@@ -44,7 +44,7 @@ export default function TwitterCard({ data }) {
           )}
         </div>
       ) : (
-        <div>No Metadata Found</div>
+        <div>No metadata found</div>
       )}
     </div>
   );

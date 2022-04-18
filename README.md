@@ -6,7 +6,3 @@ Twitter:
 Twitter Cards:
 https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
 Twitter Card Validator: https://cards-dev.twitter.com/validator
-
-
-
-

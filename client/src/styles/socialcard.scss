@@ -170,7 +170,8 @@
         }
     }
     .social-card__card.summary,
-    .social-card__card.product {
+    .social-card__card.app,
+    .social-card__card.player {
         display:flex;
         flex-direction: row;
         .social-card__image{
@@ -216,6 +217,7 @@
     .social-card__description {
         margin-top:4.5px;
         p {
+            font-size:0.9em;
             font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
             line-height:18px;
         }
@@ -230,5 +232,19 @@
             line-height: 18px;
         }
         
+    }
+    .social-card__image-container{
+        position:relative;
+    }
+    .social-card__player-button {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        background-size: cover;
+        background-image: url('https://ton.twimg.com/tfw/assets/play_v1_8b695d1e7023e06826dfde859728a2a59b15900f.svg');
+        opacity: .9;
+        transition: all ease-in-out 125ms 25ms;
     }
 }

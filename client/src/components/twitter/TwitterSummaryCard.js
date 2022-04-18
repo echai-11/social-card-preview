@@ -1,26 +1,7 @@
-import { useState, useEffect } from "react";
-import { getUrl, validateTwitter } from "../utils/cleanData";
-export default function TwitterCard({ data }) {
-  const [showTwitterCard, setShowTwitterCard] = useState(true);
-
-  useEffect(() => {
-    if (validateTwitter(data) === false) {
-      setShowTwitterCard(false);
-    }
-  }, [data]);
-
-  return (
-    <div className="twitter">
-      <p className="social-card__type">Twitter</p>
-      {showTwitterCard ? (
-        <div
-          className={`social-card__card ${
-            data.twitterCard && data.twitterCard.content
-              ? data.twitterCard.content
-              : "summary"
-          }`}
-        >
-          <div
+export default function TwitterSummaryCard({data,url}){
+    return (
+        <>
+         <div
             className="social-card__image"
             style={{
               backgroundImage:
@@ -80,15 +61,11 @@ export default function TwitterCard({ data }) {
               </div>
               <div className="social-card__url">
                 <span >
-                  {data.url && data.url.content && getUrl(data.url.content)}
+                  {url}
                 </span>
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div>No Metadata Found</div>
-      )}
-    </div>
-  );
+        </>
+    )
 }

@@ -22,8 +22,8 @@ export const TWITTER_IMAGE = 'twitter:image';
 export const TWITTER_IMAGE_ALT = 'twitter:image:alt';
 /*Twitter Player Card Required Values*/
 export const TWITTER_PLAYER = 'twitter:player'; //HTTPS URL to iFrame player.
-export const TWITTER_PLAYER_WIDTH = 'twitter:width';
-export const TWITTER_PLAYER_HEIGHT= 'twitter:height';
+export const TWITTER_PLAYER_WIDTH = 'twitter:player:width';
+export const TWITTER_PLAYER_HEIGHT= 'twitter:player:height';
 //Twiter App Card Values
 export const TWITTER_APP_ID_IPHONE = 'twitter:app:id:iphone'; //required
 export const TWITTER_APP_ID_IPAD = 'twitter:app:id:ipad'; //required

@@ -1,5 +1,5 @@
-import FacebookCard from "./FacebookCard";
-import TwitterCard from "./TwitterCard";
+import FacebookCard from "./facebook/FacebookCard";
+import TwitterCard from "./twitter/TwitterCard";
 import { FACEBOOK,TWITTER } from "../config/constants";
 import "../styles/socialcard.scss";
 export default function SocialCard ({cardType,data}){

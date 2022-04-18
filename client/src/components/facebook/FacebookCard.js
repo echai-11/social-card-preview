@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { getUrl, validateFB } from "../utils/cleanData";
+import { getUrl, validateFB } from "../../utils/cleanData";
 export default function FacebookCard({ data }) {
   const [showFBCard, setShowFBCard] = useState(true);
   const [cardSize, setCardSize] = useState("article");
@@ -36,12 +36,7 @@ export default function FacebookCard({ data }) {
                 style={{ height: 0, width: 0 }}
                 ref={imgElement}
                 onLoad={() => {
-                  console.log(
-                    imgElement.current.naturalHeight,
-                    imgElement.current.naturalWidth
-                  );
-                  console.log(imgElement.current);
-                  if (imgElement.current.naturalWidth < 600) {
+                  if (imgElement.current.naturalWidth < 500) {
                     setCardSize("website");
                   } else {
                     if (cardSize !== "article") {

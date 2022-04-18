@@ -5,7 +5,7 @@ export default function TwitterSummaryCard({data,url}){
             className="social-card__image"
             style={{
               backgroundImage:
-                data.twitterImage && data.twitterImage.content
+                data?.twitterImage?.content
                   ? `url(${data.twitterImage.content})`
                   : data.image && data.image.content
                   ? `url(${data.image.content})`
@@ -23,11 +23,10 @@ export default function TwitterSummaryCard({data,url}){
                   width: 0,
                 }}
                 src={
-                  data.twitterImage && data.twitterImage.content
+                  data?.twitterImage?.content
                     ? data.twitterImage.content
-                    : data.image && data.image.content
-                    ? data.image.content
-                    : "https://via.placeholder.com/150"
+                    : data?.image?.content
+                    ? data.image.content : ""
                 }
                 alt={
                   data.twitterImageAlt && data.twitterImageAlt.content

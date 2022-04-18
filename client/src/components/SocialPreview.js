@@ -56,7 +56,7 @@ export default function SocialPreview() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://www.examplewebsite.com"
-        ></input>
+        />
         <button
           onClick={() => {
             url !== "" && getData(url);

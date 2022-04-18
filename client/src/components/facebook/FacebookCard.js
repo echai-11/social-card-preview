@@ -20,7 +20,7 @@ export default function FacebookCard({ data }) {
           <div
             className="social-card__image"
             style={
-              data.image && data.image.content
+              data?.image?.content
                 ? {
                     backgroundImage: `url(${data.image.content})`,
                     backgroundSize: "cover",
@@ -29,10 +29,10 @@ export default function FacebookCard({ data }) {
                 : { backgroundSize: "cover", backgroundColor: "#f1f3f5" }
             }
           >
-            {data.image && data.image.content && (
+            {data?.image?.content && (
               <img
-                src={data.image && data.image.content}
-                alt={data.imageAlt && data.imageAlt ? data.imageAlt : ""}
+                src={data?.image?.content}
+                alt={data?.imageAlt ? data.imageAlt : ""}
                 style={{ height: 0, width: 0 }}
                 ref={imgElement}
                 onLoad={() => {
@@ -51,13 +51,13 @@ export default function FacebookCard({ data }) {
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
                 <p>
-                  {data.url && data.url.content ? getUrl(data.url.content) : ""}
+                  {data?.url?.content ? getUrl(data.url.content) : ""}
                 </p>
               </div>
 
               <div className="social-card__title">
                 <p>
-                  {data.title && data.title.content ? data.title.content : ""}
+                  {data?.title?.content ? data.title.content : ""}
                 </p>
               </div>
               {cardSize === "article" && data.title &&
@@ -65,7 +65,7 @@ export default function FacebookCard({ data }) {
                 data.title.content.length < 63 && (
                   <div className="social-card__description">
                     <p>
-                      {data.description && data.description
+                      {data?.description?.content
                         ? data.description.content
                         : ""}
                     </p>
@@ -74,7 +74,7 @@ export default function FacebookCard({ data }) {
                 {cardSize === "website" && (
                   <div className="social-card__description">
                     <p>
-                      {data.description && data.description
+                      {data?.description?.content
                         ? data.description.content
                         : ""}
                     </p>

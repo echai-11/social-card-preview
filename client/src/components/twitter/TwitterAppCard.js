@@ -5,9 +5,9 @@ export default function TwitterAppCard({data,url}){
             className="social-card__image"
             style={{
               backgroundImage:
-                data.twitterImage && data.twitterImage.content
+                data?.twitterImage?.content
                   ? `url(${data.twitterImage.content})`
-                  : data.image && data.image.content
+                  : data?.image?.content
                   ? `url(${data.image.content})`
                   : `url(${"https://via.placeholder.com/150"})`,
               backgroundSize: "cover",
@@ -23,16 +23,16 @@ export default function TwitterAppCard({data,url}){
                   width: 0,
                 }}
                 src={
-                  data.twitterImage && data.twitterImage.content
+                  data?.twitterImage?.content
                     ? data.twitterImage.content
-                    : data.image && data.image.content
+                    : data?.image?.content
                     ? data.image.content
                     : "https://via.placeholder.com/150"
                 }
                 alt={
-                  data.twitterImageAlt && data.twitterImageAlt.content
+                  data?.twitterImageAlt?.content
                     ? data.twitterImageAlt.content
-                    : data.imageAlt && data.imageAlt.content
+                    : data?.imageAlt?.content
                     ? data.imageAlt.content
                     : ""
                 }
@@ -43,18 +43,18 @@ export default function TwitterAppCard({data,url}){
             <div className="social-card__text-container-inner">
               <div className="social-card__title">
                 <h2 >
-                  {data.twitterTitle && data.twitterTitle.content
+                  {data?.twitterTitle?.content
                     ? data.twitterTitle.content
-                    : data.title && data.title.content
+                    : data?.title?.content
                     ? data.title.content
                     : ""}
                 </h2>
               </div>
               <div className="social-card__description">
                 <p>
-                  {data.twitterDescription && data.twitterDescription.content
+                  {data?.twitterDescription?.content
                     ? data.twitterDescription.content
-                    : data.description && data.description.content
+                    : data?.description?.content
                     ? data.description.content
                     : ""}
                 </p>

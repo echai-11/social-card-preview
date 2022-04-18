@@ -50,17 +50,14 @@ export default function FacebookCard({ data }) {
           <div className="social-card__text-container">
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
-                <p>
-                  {data?.url?.content ? getUrl(data.url.content) : ""}
-                </p>
+                <p>{data?.url?.content ? getUrl(data.url.content) : ""}</p>
               </div>
 
               <div className="social-card__title">
-                <p>
-                  {data?.title?.content ? data.title.content : ""}
-                </p>
+                <p>{data?.title?.content ? data.title.content : ""}</p>
               </div>
-              {cardSize === "article" && data.title &&
+              {cardSize === "article" &&
+                data.title &&
                 data.title.content &&
                 data.title.content.length < 63 && (
                   <div className="social-card__description">
@@ -71,15 +68,13 @@ export default function FacebookCard({ data }) {
                     </p>
                   </div>
                 )}
-                {cardSize === "website" && (
-                  <div className="social-card__description">
-                    <p>
-                      {data?.description?.content
-                        ? data.description.content
-                        : ""}
-                    </p>
-                  </div>
-                )}
+              {cardSize === "website" && (
+                <div className="social-card__description">
+                  <p>
+                    {data?.description?.content ? data.description.content : ""}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

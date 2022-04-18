@@ -13,6 +13,11 @@ export function cleanUrl(url) {
   }
   return true;
 }
+
+export function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+
 export const cleanTwitterCardType = (obj) => {
   if (obj.twitterCard === undefined) {
     if (
@@ -41,6 +46,7 @@ export const cleanTwitterCardType = (obj) => {
     return obj.twitterCard.content
   }
 };
+
 export const validateTwitter = (obj) => {
   if (obj.twitterCard === undefined) {
     //If an og:type, og:title and og:description exist
@@ -112,6 +118,7 @@ export const validateTwitter = (obj) => {
     return false;
   }
 };
+
 export const validateFB = (obj) => {
   if (obj.title === undefined || obj.url === undefined) {
     return false;

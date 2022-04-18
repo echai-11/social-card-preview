@@ -4,8 +4,8 @@ export default function MetaInfo({ data }) {
   let parsedData = Object.keys(data).map((val) => data[val]);
   return (
     <div className="metaInfo">
-      <p className="type">Meta Info</p>
       <table>
+        <caption className="type">Meta Info</caption>
         <thead>
           <tr>
             <th><span>Tag Name</span></th>

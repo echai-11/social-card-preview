@@ -1,10 +1,10 @@
-import './App.css';
-import SocialPreview from './components/SocialPreview';
+import "./App.css";
+import SocialPreview from "./components/SocialPreview";
 
 function App() {
   return (
     <div className="App">
-      <SocialPreview/>
+      <SocialPreview />
     </div>
   );
 }

@@ -37,29 +37,28 @@ import {
 } from "./constants.js";
 
 // function to get the raw data
-function getRawData (toScrapeUrl) {
+function getRawData(toScrapeUrl) {
   return fetch(toScrapeUrl)
     .then((response) => response.text())
     .then((data) => {
       return data;
     });
-};
+}
 
 function getProperties($) {
-   function getContent(property) {
-      if (
-      $(`meta[property='${property}']`).attr("content") !== undefined){
-        return ({
-          content: $(`meta[property='${property}']`).attr("content"),
-          name: property
-        });
-      } else if ($(`meta[name='${property}']`).attr("content") !== undefined) {
-        return ({
-          content: $(`meta[name='${property}']`).attr("content"),
-          name: property
-        });
-      }
-   }
+  function getContent(property) {
+    if ($(`meta[property='${property}']`).attr("content") !== undefined) {
+      return {
+        content: $(`meta[property='${property}']`).attr("content"),
+        name: property,
+      };
+    } else if ($(`meta[name='${property}']`).attr("content") !== undefined) {
+      return {
+        content: $(`meta[name='${property}']`).attr("content"),
+        name: property,
+      };
+    }
+  }
   let viewObj = {};
   viewObj.url = getContent(URL);
   viewObj.title = getContent(TITLE);
@@ -93,13 +92,13 @@ function getProperties($) {
   viewObj.twitterAppUrlIpad = getContent(TWITTER_APP_URL_IPAD);
   viewObj.twitterAppUrlGooglePlay = getContent(TWITTER_APP_URL_GOOGLEPLAY);
   viewObj.twitterAppCountry = getContent(TWITTER_APP_COUNTRY);
-  
-  return new Promise(resolve=>{
+
+  return new Promise((resolve) => {
     resolve(viewObj);
   });
 }
 
-async function checkProperties($,res) {
+async function checkProperties($, res) {
   const result = await getProperties($);
   console.log("result", result);
   if (checkIfEmpty(result) === false) {
@@ -112,8 +111,8 @@ async function checkProperties($,res) {
 }
 
 function checkIfEmpty(obj) {
-  return (
-    Object.values(obj).every((x) => x === null || x === "" || typeof x === undefined)
+  return Object.values(obj).every(
+    (x) => x === null || x === "" || typeof x === undefined
   );
 }
 // start of the program
@@ -123,7 +122,7 @@ const getData = async (aUrl, res) => {
       var rawData = response;
       const $ = cheerio.load(rawData);
       try {
-        checkProperties($,res);
+        checkProperties($, res);
       } catch (error) {
         console.log(error);
         res.status(500);

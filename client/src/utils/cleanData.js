@@ -140,3 +140,23 @@ export const validateFB = (obj) => {
     }
   } 
 };
+
+export function getMissingProperties(obj){
+  let missing = {}
+  if (obj.title === undefined){
+    missing.title = true
+  }
+  if (obj.description === undefined){
+    missing.description = true
+  }
+  if (obj.type === undefined){
+    missing.type = true
+  }
+  if (obj.url === undefined){
+    missing.url = true
+  }
+  if (obj.image === undefined){
+    missing.image = true
+  }
+  return missing;
+}

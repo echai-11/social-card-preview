@@ -76,8 +76,9 @@
     }
     .social-card__text-container {
       flex: 1;
-    }
-    .social-card__text-container {
+      display:flex;
+      align-items: center;
+      letter-spacing: -0.2px;
       background-color: #f1f3f5;
       border-left: 1px solid #dadde1;
       border-top: 1px solid #dadde1;
@@ -89,6 +90,7 @@
     border-left: 1px solid #dadde1;
     border-right: 1px solid #dadde1;
     border-bottom: 1px solid #dadde1;
+    font-family: Helvetica, Arial, sans-serif;
   }
   .social-card__text-container-inner {
     margin: 0;

@@ -10,6 +10,7 @@ export default function SocialPreview() {
   const [noDataError, setNoDataError] = useState(false);
   const [formError,setFormError]=useState({});
   const [disableBtn, setDisableBtn]=useState(false);
+
   const getData = async () => {
     if (!cleanUrl(url)) {
       setFormError({

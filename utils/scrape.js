@@ -45,7 +45,7 @@ function getRawData(toScrapeUrl) {
     });
 }
 
-function getProperties($) {
+function getProperties($, aUrl) {
   function getContent(property) {
     if ($(`meta[property='${property}']`).attr("content") !== undefined) {
       return {
@@ -92,14 +92,16 @@ function getProperties($) {
   viewObj.twitterAppUrlIpad = getContent(TWITTER_APP_URL_IPAD);
   viewObj.twitterAppUrlGooglePlay = getContent(TWITTER_APP_URL_GOOGLEPLAY);
   viewObj.twitterAppCountry = getContent(TWITTER_APP_COUNTRY);
+  viewObj.pageTitle = $('title').text();
+  viewObj.searchedUrl = aUrl;
 
   return new Promise((resolve) => {
     resolve(viewObj);
   });
 }
 
-async function checkProperties($, res) {
-  const result = await getProperties($);
+async function checkProperties($, res, aUrl) {
+  const result = await getProperties($, aUrl);
   console.log("result", result);
   if (checkIfEmpty(result) === false) {
     res.status(200);
@@ -122,7 +124,7 @@ const getData = async (aUrl, res) => {
       var rawData = response;
       const $ = cheerio.load(rawData);
       try {
-        checkProperties($, res);
+        checkProperties($, res, aUrl);
       } catch (error) {
         console.log(error);
         res.status(500);

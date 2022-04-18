@@ -25,6 +25,7 @@ export default function FacebookCard({ data }) {
                     backgroundImage: `url(${data.image.content})`,
                     backgroundSize: "cover",
                     backgroundColor: "#f1f3f5",
+                    backgroundPosition: "50% 50%"
                   }
                 : { backgroundSize: "cover", backgroundColor: "#f1f3f5" }
             }
@@ -50,11 +51,11 @@ export default function FacebookCard({ data }) {
           <div className="social-card__text-container">
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
-                <p>{data?.url?.content ? getUrl(data.url.content) : ""}</p>
+                <p>{data?.url?.content ? getUrl(data.url.content) : data?.searchedUrl ? getUrl(data.searchedUrl) : ""}</p>
               </div>
 
               <div className="social-card__title">
-                <p>{data?.title?.content ? data.title.content : ""}</p>
+                <p>{data?.title?.content ? data.title.content : data?.pageTitle ? data.pageTitle : ""}</p>
               </div>
               {cardSize === "article" &&
                 data.title &&

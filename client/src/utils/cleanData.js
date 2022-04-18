@@ -120,9 +120,23 @@ export const validateTwitter = (obj) => {
 };
 
 export const validateFB = (obj) => {
-  if (obj.title === undefined || obj.url === undefined) {
-    return false;
-  } else {
-    return true;
-  }
+  //When the path referred to by og:url returns an og:url link 
+  //that is different, the new link is followed. The sharing details 
+  //that Facebook uses are the ones at the final link in the redirect 
+  //chain. The final link in the chain should also include 
+  //the og:url meta tag. If og:url isn't specified, 
+  //then the URL of the page is assumed to be the canonical URL.
+  //https://developers.facebook.com/docs/sharing/webmasters/getting-started/versioned-link
+  if (obj.url === undefined){
+    if (obj.searchedUrl !== ""){
+      //if there is a url but no title
+      if (obj.title === undefined && obj.pageTitle === undefined) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  } 
 };

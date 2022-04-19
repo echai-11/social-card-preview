@@ -14,7 +14,7 @@ export default function FacebookCard({ data }) {
 
   return (
     <div className="facebook">
-      <p className="social-card__type">Facebook</p>
+      <p className="social-card__type" data-testid='facebook-card-title'>Facebook</p>
       {showFBCard ? (
         <div className={`social-card__card ${cardSize}`}>
           <div

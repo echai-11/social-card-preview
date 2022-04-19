@@ -12,13 +12,13 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(express.static(path.resolve('./client/build')));
+app.use(express.static(path.resolve('../client/build')));
 
 app.use(express.static('public'));
 
 
 app.get('*', (req,res)=>{
-  const index = path.resolve('./client/build/index.html');
+  const index = path.resolve('../client/build/index.html');
   res.sendFile(index);
 });
 

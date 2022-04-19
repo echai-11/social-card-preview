@@ -17,7 +17,7 @@ export default function MetaInfo({ data }) {
         </div>
       ) : (
         <table>
-          <caption className="type">Meta Info</caption>
+          <caption className="type" data-testid="meta-info-title">Meta Info</caption>
           <thead>
             <tr>
               <th>

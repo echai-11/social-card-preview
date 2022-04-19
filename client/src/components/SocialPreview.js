@@ -86,14 +86,16 @@ export default function SocialPreview() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://www.examplewebsite.com"
+            data-testid="search-bar"
           />
-          {formError?.error && <span className="form-input__error">{formError.error}</span>}
+          {formError?.error && <span className="form-input__error" data-testid="search-err">{formError.error}</span>}
           </div>
           <div className="form-submit">
             <button
               type="submit"
               onClick={handleSubmit}
               disabled={disableBtn}
+              data-testid="search-btn"
             >
               Search
             </button>

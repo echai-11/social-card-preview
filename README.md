@@ -25,5 +25,5 @@ npm run dev
 Running client:
 ```
 cd client
-PORT 3001 npm start
+PORT=3001 npm start
 ```

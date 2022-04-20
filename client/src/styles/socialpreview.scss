@@ -5,23 +5,33 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  @media  screen and (max-width:767px) {
+    flex-direction:column;
+  }
   .form-input,
   .form-submit {
     display: flex;
     flex-direction: column;
-    
   }
   .form-input input {
     padding: 5px;
     font-size: 16px;
     width: 600px;
-    margin-right: 20px;
     border: 1px solid #cccccc;
     border-radius: 3px;
     outline:none;
+    @media  screen and (max-width:767px) {
+      width:100%;
+      box-sizing: border-box;
+    }
   }
   .form-submit {
     align-items: flex-start;
+    @media  screen and (max-width:767px) {
+      align-items: center;
+    }
   }
   .form-submit button {
     padding: 4px 20px;
@@ -29,6 +39,7 @@ form {
     text-transform: capitalize;
     outline:none;
     cursor: pointer;
+    
   }
   .form-input__error {
     font-size: 12px;

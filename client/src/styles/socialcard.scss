@@ -51,26 +51,20 @@
     width: 527px;
     display: flex;
     flex-direction: row;
-    .social-card__title {
+    .social-card__website-text {
       display: -webkit-box;
       overflow: hidden;
       text-overflow: ellipsis;
-      -webkit-line-clamp: 1;
+      -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
     }
     .social-card__description {
-      display: -webkit-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
       line-height: 1.3;
       margin-top: 6px;
     }
     .social-card__image {
       height: 158px;
       width: 158px;
-      border-left: 1px solid #dadde1;
       border-bottom: 1px solid #dadde1;
       border-top: 1px solid #dadde1;
     }
@@ -80,7 +74,7 @@
       align-items: center;
       letter-spacing: -0.2px;
       background-color: #f1f3f5;
-      border-left: 1px solid #dadde1;
+      border-right: 0px;
       border-top: 1px solid #dadde1;
       border-bottom: 1px solid #dadde1;
     }

@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { getUrl, validateFB, decodeHtml } from "../../utils/cleanData";
+import FacebookArticleText from "./FacebookArticleText";
+import FacebookWebsiteText from "./FacebookWebsiteText";
+
 export default function FacebookCard({ data }) {
   const [showFBCard, setShowFBCard] = useState(true);
   const [cardSize, setCardSize] = useState("article");
@@ -14,7 +17,9 @@ export default function FacebookCard({ data }) {
 
   return (
     <div className="facebook">
-      <p className="social-card__type" data-testid='facebook-card'>Facebook</p>
+      <p className="social-card__type" data-testid="facebook-card">
+        Facebook
+      </p>
       {showFBCard ? (
         <div className={`social-card__card ${cardSize}`}>
           <div
@@ -25,11 +30,15 @@ export default function FacebookCard({ data }) {
                     backgroundImage: `url(${data.image.content})`,
                     backgroundSize: "cover",
                     backgroundColor: "#f1f3f5",
-                    backgroundPosition: "50% 50%"
+                    backgroundPosition: "50% 50%",
                   }
-                : { backgroundSize: "cover", backgroundColor: "#f1f3f5", height: 0 }
+                : {
+                    backgroundSize: "cover",
+                    backgroundColor: "#f1f3f5",
+                    height: 0,
+                  }
             }
-            data-testid='facebook-card-image'
+            data-testid="facebook-card-image"
           >
             {data?.image?.content && (
               <img
@@ -52,30 +61,46 @@ export default function FacebookCard({ data }) {
           <div className="social-card__text-container">
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
-                <p data-testid='facebook-card-url'>{data?.url?.content ? getUrl(data.url.content) : data?.searchedUrl ? getUrl(data.searchedUrl) : ""}</p>
+                <p data-testid="facebook-card-url">
+                  {data?.url?.content
+                    ? getUrl(data.url.content)
+                    : data?.searchedUrl
+                    ? getUrl(data.searchedUrl)
+                    : ""}
+                </p>
               </div>
 
-              <div className="social-card__title">
-                <p data-testid='facebook-card-title'>{data?.title?.content ? data.title.content : data?.pageTitle ? data.pageTitle : ""}</p>
-              </div>
-              {cardSize === "article" &&
-                data.title &&
-                data.title.content &&
-                data.title.content.length < 63 && (
-                  <div className="social-card__description">
-                    <p data-testid='facebook-card-description'>
-                      {data?.description?.content
-                        ? decodeHtml(data.description.content)
-                        : ""}
-                    </p>
-                  </div>
-                )}
+              {cardSize === "article" && (
+                <FacebookArticleText
+                  title={
+                    data?.title?.content
+                      ? decodeHtml(data.title.content)
+                      : data?.pageTitle
+                      ? decodeHtml(data.pageTitle)
+                      : ""
+                  }
+                  desc={
+                    data?.description?.content
+                      ? decodeHtml(data.description.content)
+                      : ""
+                  }
+                />
+              )}
               {cardSize === "website" && (
-                <div className="social-card__description">
-                  <p data-testid='facebook-card-description'>
-                    {data?.description?.content ? decodeHtml(data.description.content) : ""}
-                  </p>
-                </div>
+                <FacebookWebsiteText
+                  title={
+                    data?.title?.content
+                      ? decodeHtml(data.title.content)
+                      : data?.pageTitle
+                      ? decodeHtml(data.pageTitle)
+                      : ""
+                  }
+                  desc={
+                    data?.description?.content
+                      ? decodeHtml(data.description.content)
+                      : ""
+                  }
+                />
               )}
             </div>
           </div>

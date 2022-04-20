@@ -27,14 +27,14 @@ export default function TwitterCard({ data }) {
           {twitterCardType.includes("summary") && (
             <TwitterSummaryCard
               data={data}
-              url={data?.url?.content ? getUrl(data.url.content) : ""}
+              url={data?.url?.content && data.url.content.length > 1 ? getUrl(data.url.content) : ""}
               decodeHtml={decodeHtml}
             />
           )}
           {twitterCardType === "app" && (
             <TwitterAppCard
               data={data}
-              url={data?.url?.content ? getUrl(data.url.content) : ""}
+              url={data?.url?.content &&  data.url.content.length > 1  ? getUrl(data.url.content) : ""}
               decodeHtml={decodeHtml}
             />
           )}
@@ -42,7 +42,7 @@ export default function TwitterCard({ data }) {
           {twitterCardType === "player" && (
             <TwitterPlayerCard
               data={data}
-              url={data?.url?.content ? getUrl(data.url.content) : ""}
+              url={data?.url?.content &&  data.url.content.length > 1 ? getUrl(data.url.content) : ""}
               decodeHtml={decodeHtml}
             />
           )}

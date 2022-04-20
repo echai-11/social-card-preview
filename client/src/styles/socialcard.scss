@@ -1,3 +1,4 @@
+
 .social-card {
   display: flex;
   justify-content: center;
@@ -143,6 +144,7 @@
     }
     .social-card__text-container {
       height: 100%;
+      border-top:1px solid #e1e8ed;;
     }
     .social-card__text-container-inner {
       padding: 10.5px 14px;

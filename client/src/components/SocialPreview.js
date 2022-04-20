@@ -21,7 +21,7 @@ export default function SocialPreview() {
       setDisableBtn(false);
       return;
     }
-    fetch("http://localhost:3000/url", {
+    fetch("/url", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({

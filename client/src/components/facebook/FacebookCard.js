@@ -62,7 +62,7 @@ export default function FacebookCard({ data }) {
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
                 <p data-testid="facebook-card-url">
-                  {data?.url?.content
+                  {data?.url?.content && data.url.content.length > 1
                     ? getUrl(data.url.content)
                     : data?.searchedUrl
                     ? getUrl(data.searchedUrl)

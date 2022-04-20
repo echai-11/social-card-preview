@@ -102,7 +102,7 @@ export default function SocialPreview() {
             <button
               type="submit"
               onClick={handleSubmit}
-              active={!disableBtn}
+              disabled={disableBtn}
               data-testid="search-btn"
             >
               Search

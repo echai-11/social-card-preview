@@ -84,7 +84,9 @@
     border-left: 1px solid #dadde1;
     border-right: 1px solid #dadde1;
     border-bottom: 1px solid #dadde1;
-    font-family: Helvetica, Arial, sans-serif;
+    p {
+      font-family: Helvetica, Arial, sans-serif;
+    }
   }
   .social-card__text-container-inner {
     margin: 0;

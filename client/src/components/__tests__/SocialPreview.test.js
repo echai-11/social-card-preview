@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent} from "@testing-library/react";
 import Preview from "../Preview";
 import SocialPreview from "../SocialPreview";
 
@@ -27,7 +27,7 @@ describe("Social Preview Component", () => {
     fireEvent.change(input, {
       target: {
         value:
-          "https://stackoverflow.com/questions/66661163/react-testing-librarys-waitfor-not-working",
+          "https://nytimes.com/marketing/cooking/app",
       },
     });
     fireEvent.click(button);
@@ -79,17 +79,17 @@ describe("Social Preview Component", () => {
         }}
       />
     );
-    expect(screen.getByTestId("meta-info-title").textContent).toMatch(
-      "Meta Info"
+    expect(screen.getByTestId("meta-info-title").textContent).toContain(
+      "Meta Tags"
     );
-    expect(screen.getByTestId("facebook-card").textContent).toMatch(
+    expect(screen.getByTestId("facebook-card").textContent).toContain(
       "Facebook"
     );
-    expect(screen.getByTestId("facebook-card-title").textContent).toMatch(
+    expect(screen.getByTestId("facebook-card-title").textContent).toContain(
       "Download the NYT Cooking app"
     );
     expect(screen.getByTestId("facebook-card-description").textContent).toContain(
-      "Get recipes and inspiration daily on iOS or Android."
+      "Get recipes and inspiration daily on iOS or Android"
     );
     expect(screen.getByTestId("facebook-card-url").textContent).toContain(
       "nytimes.com"

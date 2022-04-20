@@ -11,7 +11,7 @@ export default function SocialPreview() {
   const [formError, setFormError] = useState({});
   const [disableBtn, setDisableBtn] = useState(false);
   const [serverError, setServerError] = useState(false);
-
+ 
   const getData = async () => {
     if (!cleanUrl(url)) {
       setFormError({
@@ -38,10 +38,7 @@ export default function SocialPreview() {
       .then(function (response) {
         if (response.status === 204) {
           console.log(response);
-          setShowPreview(false);
-          setNoDataError(true);
-          setDisableBtn(false);
-          throw new Error("No Data Found!!!");
+          showError();
         } else {
           return response.json();
         }
@@ -49,10 +46,7 @@ export default function SocialPreview() {
       .then(function (response) {
         console.log(response);
         if (isEmpty(response)) {
-          setShowPreview(false);
-          setNoDataError(true);
-          setDisableBtn(false);
-          throw new Error("No Data Found!!!");
+          showError();
         }
         setNoDataError(false);
         setData(response);
@@ -66,13 +60,19 @@ export default function SocialPreview() {
         throw new Error(error);
       });
   };
-  const reset = () => {
+  function showError (){
+    setShowPreview(false);
+    setNoDataError(true);
+    setDisableBtn(false);
+    throw new Error("No Data Found!!!");
+  }
+  function reset (){
     setShowPreview(false);
     setNoDataError(false);
     setFormError({});
     setServerError(false);
   };
-  const handleSubmit = (e) => {
+  function handleSubmit(e){
     e.preventDefault();
     reset();
     setDisableBtn(true);

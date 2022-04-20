@@ -1,4 +1,4 @@
-export default function TwitterSummaryCard({ data, url }) {
+export default function TwitterSummaryCard({ data, url,decodeHtml }) {
   return (
     <>
       <div
@@ -29,9 +29,9 @@ export default function TwitterSummaryCard({ data, url }) {
                 : ""
             }
             alt={
-              data.twitterImageAlt && data.twitterImageAlt.content
+              data?.twitterImageAlt?.content
                 ? data.twitterImageAlt.content
-                : data.imageAlt && data.imageAlt.content
+                : data?.imageAlt?.content
                 ? data.imageAlt.content
                 : ""
             }
@@ -42,19 +42,19 @@ export default function TwitterSummaryCard({ data, url }) {
         <div className="social-card__text-container-inner">
           <div className="social-card__title">
             <h2>
-              {data.twitterTitle && data.twitterTitle.content
-                ? data.twitterTitle.content
-                : data.title && data.title.content
-                ? data.title.content
+              {data?.twitterTitle?.content
+                ? decodeHtml(data.twitterTitle.content)
+                : data?.title?.content
+                ? decodeHtml(data.title.content)
                 : ""}
             </h2>
           </div>
           <div className="social-card__description">
             <p>
-              {data.twitterDescription && data.twitterDescription.content
-                ? data.twitterDescription.content
-                : data.description && data.description.content
-                ? data.description.content
+              {data?.twitterDescription?.content
+                ? decodeHtml(data.twitterDescription.content)
+                : data?.description?.content
+                ? decodeHtml(data.description.content)
                 : ""}
             </p>
           </div>

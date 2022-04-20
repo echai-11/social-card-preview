@@ -14,11 +14,17 @@ export function cleanUrl(url) {
   return true;
 }
 
+export function decodeHtml(html) {
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+}
+
 export function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
-export const cleanTwitterCardType = (obj) => {
+export function cleanTwitterCardType (obj) {
   if (obj.twitterCard === undefined) {
     if (
       obj.type !== undefined &&
@@ -47,7 +53,7 @@ export const cleanTwitterCardType = (obj) => {
   }
 };
 
-export const validateTwitter = (obj) => {
+export function validateTwitter (obj) {
   if (obj.twitterCard === undefined) {
     //If an og:type, og:title and og:description exist
     //in the markup but twitter:card is absent, then a

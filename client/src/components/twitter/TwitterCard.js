@@ -3,6 +3,7 @@ import {
   getUrl,
   validateTwitter,
   cleanTwitterCardType,
+  decodeHtml
 } from "../../utils/cleanData";
 import TwitterSummaryCard from "./TwitterSummaryCard";
 import TwitterAppCard from "./TwitterAppCard";
@@ -27,12 +28,14 @@ export default function TwitterCard({ data }) {
             <TwitterSummaryCard
               data={data}
               url={data?.url?.content ? getUrl(data.url.content) : ""}
+              decodeHtml={decodeHtml}
             />
           )}
           {twitterCardType === "app" && (
             <TwitterAppCard
               data={data}
               url={data?.url?.content ? getUrl(data.url.content) : ""}
+              decodeHtml={decodeHtml}
             />
           )}
 
@@ -40,11 +43,12 @@ export default function TwitterCard({ data }) {
             <TwitterPlayerCard
               data={data}
               url={data?.url?.content ? getUrl(data.url.content) : ""}
+              decodeHtml={decodeHtml}
             />
           )}
         </div>
       ) : (
-        <div>No metadata found</div>
+        <div>No meta tags found</div>
       )}
     </div>
   );

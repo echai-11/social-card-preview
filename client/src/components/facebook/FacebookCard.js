@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { getUrl, validateFB } from "../../utils/cleanData";
+import { getUrl, validateFB, decodeHtml } from "../../utils/cleanData";
 export default function FacebookCard({ data }) {
   const [showFBCard, setShowFBCard] = useState(true);
   const [cardSize, setCardSize] = useState("article");
@@ -65,7 +65,7 @@ export default function FacebookCard({ data }) {
                   <div className="social-card__description">
                     <p data-testid='facebook-card-description'>
                       {data?.description?.content
-                        ? data.description.content
+                        ? decodeHtml(data.description.content)
                         : ""}
                     </p>
                   </div>
@@ -73,7 +73,7 @@ export default function FacebookCard({ data }) {
               {cardSize === "website" && (
                 <div className="social-card__description">
                   <p data-testid='facebook-card-description'>
-                    {data?.description?.content ? data.description.content : ""}
+                    {data?.description?.content ? decodeHtml(data.description.content) : ""}
                   </p>
                 </div>
               )}
@@ -81,7 +81,7 @@ export default function FacebookCard({ data }) {
           </div>
         </div>
       ) : (
-        <div>No metadata found</div>
+        <div>No meta tags found</div>
       )}
     </div>
   );

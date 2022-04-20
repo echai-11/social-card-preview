@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Preview from "./Preview";
-import { cleanUrl,isEmpty } from "../utils/cleanData";
+import { cleanUrl, isEmpty } from "../utils/cleanData";
 import "../styles/socialpreview.scss";
 
 export default function SocialPreview() {
@@ -8,19 +8,20 @@ export default function SocialPreview() {
   const [data, setData] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const [noDataError, setNoDataError] = useState(false);
-  const [formError,setFormError]=useState({});
-  const [disableBtn, setDisableBtn]=useState(false);
-  const [serverError, setServerError]=useState(false);
+  const [formError, setFormError] = useState({});
+  const [disableBtn, setDisableBtn] = useState(false);
+  const [serverError, setServerError] = useState(false);
 
   const getData = async () => {
     if (!cleanUrl(url)) {
       setFormError({
-        error:'Please fix the format of the url, it should start with http:// or https://'
+        error:
+          "Please fix the format of the url, it should start with http:// or https://",
       });
       setDisableBtn(false);
       return;
     }
-    fetch("/url", {
+    fetch("http://localhost:3000/url", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({
@@ -47,7 +48,7 @@ export default function SocialPreview() {
       })
       .then(function (response) {
         console.log(response);
-        if (isEmpty(response)){
+        if (isEmpty(response)) {
           setShowPreview(false);
           setNoDataError(true);
           setDisableBtn(false);
@@ -65,39 +66,43 @@ export default function SocialPreview() {
         throw new Error(error);
       });
   };
-  const reset = ()=>{
+  const reset = () => {
     setShowPreview(false);
     setNoDataError(false);
     setFormError({});
     setServerError(false);
-  }
-  const handleSubmit = (e)=>{
+  };
+  const handleSubmit = (e) => {
     e.preventDefault();
     reset();
     setDisableBtn(true);
-    url !== '' && getData(url);
-  }
- 
+    url !== "" && getData(url);
+  };
+
   return (
     <div>
       <div className="search">
         <form>
           <div className="form-input">
-          <input
-            type="url"
-            required
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://www.examplewebsite.com"
-            data-testid="search-bar"
-          />
-          {formError?.error && <span className="form-input__error" data-testid="search-err">{formError.error}</span>}
+            <input
+              type="url"
+              required
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder="https://www.examplewebsite.com"
+              data-testid="search-bar"
+            />
+            {formError?.error && (
+              <span className="form-input__error" data-testid="search-err">
+                {formError.error}
+              </span>
+            )}
           </div>
           <div className="form-submit">
             <button
               type="submit"
               onClick={handleSubmit}
-              disabled={disableBtn}
+              active={!disableBtn}
               data-testid="search-btn"
             >
               Search

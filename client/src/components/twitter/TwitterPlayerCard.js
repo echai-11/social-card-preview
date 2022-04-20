@@ -1,4 +1,4 @@
-export default function TwitterPlayerCard({ data, url }) {
+export default function TwitterPlayerCard({ data, url,decodeHtml }) {
   return (
     <>
       <div className="social-card__image-container">
@@ -46,18 +46,18 @@ export default function TwitterPlayerCard({ data, url }) {
           <div className="social-card__title">
             <h2>
               {data?.twitterTitle?.content
-                ? data.twitterTitle.content
+                ? decodeHtml(data.twitterTitle.content)
                 : data?.title?.content
-                ? data.title.content
+                ? decodeHtml(data.title.content)
                 : ""}
             </h2>
           </div>
           <div className="social-card__description">
             <p>
               {data?.twitterDescription?.content
-                ? data.twitterDescription.content
+                ? decodeHtml(data.twitterDescription.content)
                 : data?.description?.content
-                ? data.description.content
+                ? decodeHtml(data.description.content)
                 : ""}
             </p>
           </div>

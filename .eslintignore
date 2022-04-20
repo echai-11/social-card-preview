@@ -1,0 +1,8 @@
+build
+node_modules
+public
+styles
+__tests__
+*.json
+*.css
+*.md

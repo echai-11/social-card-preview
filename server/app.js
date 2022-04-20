@@ -11,17 +11,17 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(express.static(path.resolve('../client/build')));
+app.use(express.static(path.resolve("../client/build")));
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 
-app.get('*', (req,res)=>{
-  const index = path.resolve('../client/build/index.html');
+app.get("*", (req,res)=>{
+  const index = path.resolve("../client/build/index.html");
   res.status(200).sendFile(index);
 });
 
-app.post('/url', (req, res) => {
+app.post("/url", (req, res) => {
   if (req.body && req.body.url){
     getData(req.body.url, res);
   } else {

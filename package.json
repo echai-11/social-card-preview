@@ -4,10 +4,10 @@
   "description": "Preview social media cards for links",
   "main": "server/index.js",
   "scripts": {
-    "start": "cd server && npm install && node index.js",
-    "postinstall": "cd client && npm install && npm run build",
+    "client": "cd client && npm install && npm run build",
+    "server": "cd server && npm install && node index.js",
+    "start": "npm run client && npm run server",
     "lint": "eslint './**'  --fix-dry-run",
-    "format": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -21,7 +21,7 @@ export default function SocialPreview() {
       setDisableBtn(false);
       return;
     }
-    fetch("/url", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/url`, {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({

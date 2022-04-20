@@ -10,6 +10,7 @@ export default function SocialPreview() {
   const [noDataError, setNoDataError] = useState(false);
   const [formError,setFormError]=useState({});
   const [disableBtn, setDisableBtn]=useState(false);
+  const [serverError, setServerError]=useState(false);
 
   const getData = async () => {
     if (!cleanUrl(url)) {
@@ -60,6 +61,7 @@ export default function SocialPreview() {
       })
       .catch(function (error) {
         setDisableBtn(false);
+        setServerError(true);
         throw new Error(error);
       });
   };
@@ -67,6 +69,7 @@ export default function SocialPreview() {
     setShowPreview(false);
     setNoDataError(false);
     setFormError({});
+    setServerError(false);
   }
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -103,6 +106,7 @@ export default function SocialPreview() {
         </form>
         {showPreview && <Preview data={data} />}
         {noDataError && <div className="no-data">No Data Found</div>}
+        {serverError && <div className="no-data">Server Error</div>}
       </div>
     </div>
   );

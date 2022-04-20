@@ -20,7 +20,7 @@ export default function TwitterCard({ data }) {
 
   return (
     <div className="twitter">
-      <p className="social-card__type" data-testid='twitter-card-title'>Twitter</p>
+      <p className="social-card__type" data-testid='twitter-card'>Twitter</p>
       {showTwitterCard ? (
         <div className={`social-card__card ${twitterCardType}`}>
           {twitterCardType.includes("summary") && (

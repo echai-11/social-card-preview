@@ -14,7 +14,7 @@ export default function FacebookCard({ data }) {
 
   return (
     <div className="facebook">
-      <p className="social-card__type" data-testid='facebook-card-title'>Facebook</p>
+      <p className="social-card__type" data-testid='facebook-card'>Facebook</p>
       {showFBCard ? (
         <div className={`social-card__card ${cardSize}`}>
           <div
@@ -29,6 +29,7 @@ export default function FacebookCard({ data }) {
                   }
                 : { backgroundSize: "cover", backgroundColor: "#f1f3f5", height: 0 }
             }
+            data-testid='facebook-card-image'
           >
             {data?.image?.content && (
               <img
@@ -51,18 +52,18 @@ export default function FacebookCard({ data }) {
           <div className="social-card__text-container">
             <div className="social-card__text-container-inner">
               <div className="social-card__url">
-                <p>{data?.url?.content ? getUrl(data.url.content) : data?.searchedUrl ? getUrl(data.searchedUrl) : ""}</p>
+                <p data-testid='facebook-card-url'>{data?.url?.content ? getUrl(data.url.content) : data?.searchedUrl ? getUrl(data.searchedUrl) : ""}</p>
               </div>
 
               <div className="social-card__title">
-                <p>{data?.title?.content ? data.title.content : data?.pageTitle ? data.pageTitle : ""}</p>
+                <p data-testid='facebook-card-title'>{data?.title?.content ? data.title.content : data?.pageTitle ? data.pageTitle : ""}</p>
               </div>
               {cardSize === "article" &&
                 data.title &&
                 data.title.content &&
                 data.title.content.length < 63 && (
                   <div className="social-card__description">
-                    <p>
+                    <p data-testid='facebook-card-description'>
                       {data?.description?.content
                         ? data.description.content
                         : ""}
@@ -71,7 +72,7 @@ export default function FacebookCard({ data }) {
                 )}
               {cardSize === "website" && (
                 <div className="social-card__description">
-                  <p>
+                  <p data-testid='facebook-card-description'>
                     {data?.description?.content ? data.description.content : ""}
                   </p>
                 </div>

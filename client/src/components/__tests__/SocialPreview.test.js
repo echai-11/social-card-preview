@@ -82,11 +82,20 @@ describe("Social Preview Component", () => {
     expect(screen.getByTestId("meta-info-title").textContent).toMatch(
       "Meta Info"
     );
-    expect(screen.getByTestId("facebook-card-title").textContent).toMatch(
+    expect(screen.getByTestId("facebook-card").textContent).toMatch(
       "Facebook"
     );
     expect(screen.getByTestId("facebook-card-title").textContent).toMatch(
-      "Facebook"
+      "Download the NYT Cooking app"
+    );
+    expect(screen.getByTestId("facebook-card-description").textContent).toContain(
+      "Get recipes and inspiration daily on iOS or Android."
+    );
+    expect(screen.getByTestId("facebook-card-url").textContent).toContain(
+      "nytimes.com"
+    );
+    expect(screen.getByTestId("twitter-card").textContent).toMatch(
+      "Twitter"
     );
   });
 });

@@ -23,18 +23,14 @@ export default function MetaTable({ data }) {
   return (
     <div className="metaInfo">
       {!showTable && (
-        <div className="metaInfo_no-data">
-          <p className="type">Meta Info</p>
-          <div>
+        <div>
+          <div className="no-data">
             <span>No meta tags found</span>
           </div>
         </div>
       )}
       {showTable && (
-        <div className="metaInfo_data">
-          <p className="type" data-testid="meta-info-title">
-            Meta Tags
-          </p>
+        <div>
           <table>
             <thead>
               <tr>
@@ -64,12 +60,12 @@ export default function MetaTable({ data }) {
               <tfoot>
                 <tr>
                   <td>
-                    <span>Missing values:</span>
+                    <span className="err">Missing values:</span>
                   </td>
                   <td>
                     {Object.keys(errors).map((val, i) => {
                       return (
-                        <span key={`missing_${i}`}>{`og:${val}${
+                        <span key={`missing_${i}`} className="err">{`og:${val}${
                           i !== Object.keys(errors).length - 1 ? ", " : "."
                         }`}</span>
                       );

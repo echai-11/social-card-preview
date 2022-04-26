@@ -17,9 +17,6 @@ export default function FacebookCard({ data }) {
 
   return (
     <div className="facebook">
-      <p className="social-card__type" data-testid="facebook-card">
-        Facebook
-      </p>
       {showFBCard ? (
         <div className={`social-card__card ${cardSize}`}>
           <div
@@ -106,7 +103,9 @@ export default function FacebookCard({ data }) {
           </div>
         </div>
       ) : (
-        <div>No meta tags found</div>
+        <div className="no-data">
+          <span>No meta tags found</span>
+        </div>
       )}
     </div>
   );

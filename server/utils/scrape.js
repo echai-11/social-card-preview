@@ -92,7 +92,7 @@ function getProperties($, aUrl) {
   viewObj.twitterAppUrlIpad = getContent(TWITTER_APP_URL_IPAD);
   viewObj.twitterAppUrlGooglePlay = getContent(TWITTER_APP_URL_GOOGLEPLAY);
   viewObj.twitterAppCountry = getContent(TWITTER_APP_COUNTRY);
-  viewObj.pageTitle = $('title').text();
+  viewObj.pageTitle = $("title").text();
   viewObj.searchedUrl = aUrl;
 
   return new Promise((resolve) => {

@@ -19,6 +19,7 @@
     tr td,
     tr th {
       text-align: left;
+      vertical-align: top;
     }
     thead {
       tr th {
@@ -31,6 +32,7 @@
           display: flex;
           span {
             align-self: flex-start;
+            word-break: break-all;
           }
         }
       }

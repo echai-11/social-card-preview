@@ -8,18 +8,24 @@ export default function Preview({ data }) {
     <div className="preview" data-testid="preview">
       <table>
         <tbody>
-          <tr><p className="preview__type" data-testid="meta-info-title">
-              Meta Tags
-            </p></tr>
+          <tr>
+            <td>
+              <p className="preview__type" data-testid="meta-info-title">
+                Meta Tags
+              </p>
+            </td>
+          </tr>
           <tr>
             <td>
               <MetaTable data={data} />
             </td>
           </tr>
           <tr>
-            <p className="preview__type" data-testid="facebook-card">
-              Facebook
-            </p>
+            <td>
+              <p className="preview__type" data-testid="facebook-card">
+                Facebook
+              </p>
+            </td>
           </tr>
           <tr>
             <td>
@@ -27,9 +33,11 @@ export default function Preview({ data }) {
             </td>
           </tr>
           <tr>
-            <p className="preview__type" data-testid="twitter-card">
-              Twitter
-            </p>
+            <td>
+              <p className="preview__type" data-testid="twitter-card">
+                Twitter
+              </p>
+            </td>
           </tr>
           <tr>
             <td>

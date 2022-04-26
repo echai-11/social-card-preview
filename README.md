@@ -32,3 +32,8 @@ Testing in client/server folders:
  ```
  npm test a
  ```
+ 
+**Urls to Test**:
+
+[Spreadsheet with LP urls](https://docs.google.com/spreadsheets/d/1Z_i8nsQ9j4gEr3OQDP5e5HrxQHUH49VfpsELXhJNaE4/edit#gid=0)
+

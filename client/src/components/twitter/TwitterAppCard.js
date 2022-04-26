@@ -1,3 +1,22 @@
+/* Twitter App Card
+====================================================================
+Description:
+A description of the content in a maximum of 200 characters
+
+Player(twitter:player):
+HTTPS URL to iFrame player. This must be a HTTPS URL which does not 
+generate active mixed content warnings in a web browser. The audio or
+ video player must not require plugins such as Adobe Flash.
+
+Image:
+Image to be displayed in place of the player on platforms that don’t 
+support iFrames or inline players. You should make this image the same 
+dimensions as your player. Images with fewer than 68,600 pixels
+ (a 262x262 square image, or a 350x196 16:9 image) will cause the 
+ player card not to render. Images must be less than 5MB in size. 
+ JPG, PNG, WEBP and GIF formats are supported. Only the first frame 
+ of an animated GIF will be used. SVG is not supported.
+*/
 export default function TwitterAppCard({ data, url,decodeHtml }) {
   return (
     <>

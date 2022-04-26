@@ -1,3 +1,11 @@
+
+/* Twitter Player Card
+====================================================================
+Description:
+You can use this as a more concise description than what you may 
+have on the app store. This field has a maximum of 200 characters
+
+*/
 export default function TwitterPlayerCard({ data, url,decodeHtml }) {
   return (
     <>

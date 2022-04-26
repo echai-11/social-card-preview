@@ -1,3 +1,44 @@
+
+/* Summary Card and Summary Card with Large Image
+====================================================================
+Title:
+A concise title for the related content.
+
+Platform specific behaviors:
+ - iOS, Android: Truncated to two lines in timeline and expanded Tweet
+ - Web: Truncated to one line in timeline and expanded Tweet
+
+====================================================================
+Description:
+A description that concisely summarizes the content as 
+appropriate for presentation within a Tweet. 
+You should not re-use the title as the description 
+or use this field to describe the general services 
+provided by the website. 
+
+Platform specific behaviors:
+ - iOS, Android: Not displayed
+ - Web: Truncated to three lines in timeline and expanded Tweet
+
+====================================================================
+Image:
+A URL to a unique image representing the content of the page. 
+You should not use a generic image such as your website logo, 
+author photo, or other image that spans multiple pages. Images 
+for this Card support an aspect ratio of 1:1 with minimum dimensions 
+of 144x144 or maximum of 4096x4096 pixels. 
+Images must be less than 5MB in size. The image will be cropped 
+to a square on all platforms. JPG, PNG, WEBP and GIF formats are supported.
+Only the first frame of an animated GIF will be used. SVG is not supported.
+
+===========================================================================
+Image Alt:
+A text description of the image conveying 
+the essential nature of an image to users who are
+visually impaired. Maximum 420 characters.
+
+*/
+
 export default function TwitterSummaryCard({ data, url,decodeHtml }) {
   return (
     <>

@@ -27,3 +27,8 @@ Running client:
 cd client
 PORT=3001 npm start
 ```
+
+Testing in client/server folders:
+ ```
+ npm test a
+ ```

@@ -101,7 +101,8 @@ export default function SocialPreview() {
           <div className="form-submit">
             <button
               type="submit"
-              onClick={handleSubmit}
+              onClick={(e)=>{ 
+                url !== "" && handleSubmit(e)}}
               disabled={disableBtn}
               data-testid="search-btn"
             >

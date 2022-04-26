@@ -1,5 +1,10 @@
 .search {
   margin: 50px;
+   & > div.no-data {
+     text-align: center;
+     font-family: 'Roboto Mono', monospace;
+     margin: 50px 0;
+   }
 }
 form {
   display: flex;

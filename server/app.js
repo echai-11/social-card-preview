@@ -5,9 +5,12 @@ import path from "path";
 
 const app = express();
 
-app.use(express.urlencoded(true));
 
 app.use(express.json());
+
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.use(cors());
 

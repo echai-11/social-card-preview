@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart":"npm install",
+    "start":"node ./index.js",
     "dev": "nodemon ./index.js",
+    "deploy": "gcloud app deploy",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "author": "",

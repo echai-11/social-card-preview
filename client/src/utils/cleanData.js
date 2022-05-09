@@ -20,10 +20,6 @@ export function decodeHtml(html) {
   return txt.value;
 }
 
-export function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
-
 export function cleanTwitterCardType (obj) {
   if (obj.twitterCard === undefined) {
     if (

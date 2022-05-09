@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Preview from "./Preview";
-import { cleanUrl, isEmpty } from "../utils/cleanData";
+import { cleanUrl } from "../utils/cleanData";
+import { handleData } from "../utils/scrape";
 import "../styles/socialpreview.scss";
 
 export default function SocialPreview() {
   const [url, setUrl] = useState("");
   const [data, setData] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
-  const [noDataError, setNoDataError] = useState(false);
   const [formError, setFormError] = useState({});
   const [disableBtn, setDisableBtn] = useState(false);
   const [serverError, setServerError] = useState(false);
- 
+
   const getData = async () => {
     if (!cleanUrl(url)) {
       setFormError({
@@ -21,63 +21,60 @@ export default function SocialPreview() {
       setDisableBtn(false);
       return;
     }
-    fetch(`${process.env.REACT_APP_BASE_URL}/url`, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify({
-        url: url,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        Origin: "*",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        "Cache-Control": "no-cache",
-      },
-    })
-      .then(function (response) {
-        if (response.status === 204) {
-          console.log(response);
-          showError();
+  
+    let rawData = await fetch(url)
+      .then((response) => {
+        if (response.ok){
+          return response.blob();
         } else {
-          return response.json();
+          return response.json()
+          .then(function (jsonRes) {
+              return Promise.reject(jsonRes);
+          });
         }
       })
-      .then(function (response) {
-        console.log(response);
-        if (isEmpty(response)) {
-          showError();
-        }
-        setNoDataError(false);
-        setData(response);
-        setShowPreview(true);
-        setDisableBtn(false);
-        return response;
+      .then((blob) => {
+        return new Response(blob).text();
       })
-      .catch(function (error) {
-        setDisableBtn(false);
-        setServerError(true);
-        throw new Error(error);
+      .then((result) => {
+        return result;
+      })
+      .catch((error) => {
+        showError(error);
       });
+
+      if (!showError){
+        handleData(rawData)
+        .then((response)=>{
+          setData(response);
+          setData(response);
+          setShowPreview(true);
+          setDisableBtn(false);
+          console.log(response);
+        })
+        .catch((error)=>{
+          showError(error);
+        });
+      }
   };
-  function showError (){
+  
+  function showError(error){
     setShowPreview(false);
-    setNoDataError(true);
     setDisableBtn(false);
-    throw new Error("No Data Found!!!");
+    setServerError(true);
+    console.log(error);
   }
-  function reset (){
+  function reset() {
     setShowPreview(false);
-    setNoDataError(false);
     setFormError({});
     setServerError(false);
-  };
-  function handleSubmit(e){
+  }
+  function handleSubmit(e) {
     e.preventDefault();
     reset();
     setDisableBtn(true);
     url !== "" && getData(url);
-  };
+  }
 
   return (
     <div>
@@ -101,8 +98,9 @@ export default function SocialPreview() {
           <div className="form-submit">
             <button
               type="submit"
-              onClick={(e)=>{ 
-                url !== "" && handleSubmit(e)}}
+              onClick={(e) => {
+                url !== "" && handleSubmit(e);
+              }}
               disabled={disableBtn}
               data-testid="search-btn"
             >
@@ -111,7 +109,6 @@ export default function SocialPreview() {
           </div>
         </form>
         {showPreview && <Preview data={data} />}
-        {noDataError && <div className="no-data">No Data Found</div>}
         {serverError && <div className="no-data">Server Error</div>}
       </div>
     </div>

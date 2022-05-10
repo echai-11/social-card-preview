@@ -132,7 +132,7 @@ export const validateFB = (obj) => {
   if (obj.url === undefined){
     if (obj.searchedUrl !== ""){
       //if there is a url but no title
-      if (obj.title === undefined && obj.pageTitle === undefined) {
+      if (!obj.title && !obj.pageTitle) {
         return false;
       } else {
         return true;

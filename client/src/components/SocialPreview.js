@@ -24,7 +24,8 @@ export default function SocialPreview() {
   
     let rawData = await fetch(url)
       .then((response) => {
-        if (response.ok){
+        if (response.status === 200){
+          console.log(response);
           return response.blob();
         } else {
           return response.json()
@@ -43,7 +44,7 @@ export default function SocialPreview() {
         showError(error);
       });
 
-      if (!showError){
+      if (!serverError){
         handleData(rawData)
         .then((response)=>{
           setData(response);

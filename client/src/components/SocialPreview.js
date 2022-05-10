@@ -34,8 +34,13 @@ export default function SocialPreview() {
           });
         }
       })
-      .then((blob) => {
-        return new Response(blob).text();
+      .then((blob,err) => {
+        try {
+          return new Response(blob).text();
+        } catch (err){
+          console.log(err);
+          showError(err);
+        }
       })
       .then((result) => {
         return result;
@@ -45,9 +50,8 @@ export default function SocialPreview() {
       });
 
       if (!serverError){
-        handleData(rawData)
+        handleData(rawData,url)
         .then((response)=>{
-          setData(response);
           setData(response);
           setShowPreview(true);
           setDisableBtn(false);

@@ -23,13 +23,13 @@ export function decodeHtml(html) {
 export function cleanTwitterCardType (obj) {
   if (obj.twitterCard === undefined) {
     if (
-      obj.type !== undefined &&
-      obj.title !== undefined &&
-      obj.description !== undefined
+      !obj.type &&
+      !obj.title &&
+      !obj.description
     ) {
-      return "summary";
+      return "";
     } 
-    return "";
+    return "summary";
   } else if (
     obj.twitterCard.content &&
     !obj.twitterCard.content.includes("summary") &&
@@ -37,13 +37,13 @@ export function cleanTwitterCardType (obj) {
     obj.twitterCard.content !== "player"
   ) {
     if (
-      obj.type !== undefined &&
-      obj.title !== undefined &&
-      obj.description !== undefined
+      !obj.type &&
+      !obj.title  &&
+      !obj.description
     ) {
-      return "summary";
+      return "";
     }
-    return ""
+    return "summary"
   } else {
     return obj.twitterCard.content
   }
@@ -56,13 +56,13 @@ export function validateTwitter (obj) {
     //summary card may be rendered.
     //https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
     if (
-      obj.type !== undefined &&
-      obj.title !== undefined &&
-      obj.description !== undefined
+      !obj.type &&
+      !obj.title &&
+      !obj.description
     ) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   } else if (
     obj.twitterCard.content &&
     !obj.twitterCard.content.includes("summary") &&
@@ -70,18 +70,18 @@ export function validateTwitter (obj) {
     obj.twitterCard.content !== "player"
   ) {
     if (
-      obj.type !== undefined &&
-      obj.title !== undefined &&
-      obj.description !== undefined
+      !obj.type &&
+      !obj.title &&
+      !obj.description 
     ) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   } else if (
     obj.twitterCard.content &&
     obj.twitterCard.content.includes("summary")
   ) {
-    if (obj.title === undefined) {
+    if (!obj.title) {
       return false;
     } else {
       return true;
@@ -91,12 +91,12 @@ export function validateTwitter (obj) {
     obj.twitterCard.content === "player"
   ) {
     if (
-      obj.twitterTitle === undefined ||
-      obj.twitterSite === undefined ||
-      obj.twitterPlayer === undefined ||
-      obj.twitterPlayerWidth === undefined ||
-      obj.twitterPlayerHeight === undefined ||
-      obj.twitterImage === undefined
+      !obj.twitterTitle ||
+      !obj.twitterSite ||
+      !obj.twitterPlayer  ||
+     !obj.twitterPlayerWidth  ||
+      !obj.twitterPlayerHeight  ||
+      !obj.twitterImage 
     ) {
       return false;
     } else {
@@ -107,10 +107,10 @@ export function validateTwitter (obj) {
     obj.twitterCard.content === "app"
   ) {
     if (
-      obj.twitterSite === undefined ||
-      obj.twitterAppIdIphone === undefined ||
-      obj.twitterAppIdIpad === undefined ||
-      obj.twitterAppIdGooglePlay === undefined
+      !obj.twitterSite ||
+      !obj.twitterAppIdIphone ||
+      !obj.twitterAppIdIpad  ||
+      !obj.twitterAppIdGooglePlay 
     ) {
       return false;
     } else {
@@ -145,19 +145,19 @@ export const validateFB = (obj) => {
 
 export function getMissingProperties(obj){
   let missing = {}
-  if (obj.title === undefined){
+  if (!obj.title){
     missing.title = true
   }
-  if (obj.description === undefined){
+  if (!obj.description){
     missing.description = true
   }
-  if (obj.type === undefined){
+  if (!obj.type){
     missing.type = true
   }
-  if (obj.url === undefined){
+  if (!obj.url){
     missing.url = true
   }
-  if (obj.image === undefined){
+  if (!obj.image){
     missing.image = true
   }
   return missing;

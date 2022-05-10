@@ -7,7 +7,15 @@ export default function MetaTable({ data }) {
   const [parsedData] = useState(
     Object.keys(data)
       .map((val) => data[val])
-      .filter((item) => typeof item === "object")
+      .filter((item) => {
+        if (typeof item === "object") {
+          if (!item.content){
+            return false;
+          } 
+          return true;
+        }
+        return false;
+      })
   );
 
   useEffect(() => {
